@@ -37,6 +37,40 @@ const config = {
 const configureFastify = async (fastify, options) => {
   if (options.side === 'api') {
     fastify.log.info({ custom: { options } }, 'Configuring api side')
+
+    fastify.register(require('fastify-sse-v2'))
+
+    fastify.register(async (fastify) => {
+      fastify.get('/generate', async (req, reply) => {
+        const payload = {
+          model: 'text-davinci-003',
+          prompt: req.query.prompt,
+          temperature: 0.7,
+          top_p: 1,
+          frequency_penalty: 0,
+          presence_penalty: 0,
+          max_tokens: 200,
+          stream: true,
+          n: 1,
+        }
+
+        const res = await fetch('https://api.openai.com/v1/completions', {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.OPENAI_API_KEY ?? ''}`,
+          },
+          method: 'POST',
+          body: JSON.stringify(payload),
+        })
+
+        const decoder = new TextDecoder()
+
+        for await (const chunk of res.body) {
+          const decodedChunk = decoder.decode(chunk).replace(/^data: /, '')
+          reply.sse({ data: decodedChunk })
+        }
+      })
+    })
   }
 
   if (options.side === 'web') {

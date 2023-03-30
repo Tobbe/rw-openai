@@ -7792,6 +7792,7 @@ __metadata:
   dependencies:
     "@redwoodjs/api": 4.4.2
     "@redwoodjs/graphql-server": 4.4.2
+    fastify-sse-v2: ^3.0.0
   languageName: unknown
   linkType: soft
 
@@ -12570,6 +12571,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-fifo@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "fast-fifo@npm:1.1.0"
+  checksum: bddb7c7eb66052443d1b8dab15b84cb371b62222f5433906772c017dc85f761ffd820d379613e44dc3cf7b2c827418317b9c153e4a61260aa3652c3cbfa90dd3
+  languageName: node
+  linkType: hard
+
 "fast-glob@npm:3.2.12, fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.9":
   version: 3.2.12
   resolution: "fast-glob@npm:3.2.12"
@@ -12678,7 +12686,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-plugin@npm:^4.0.0":
+"fastify-plugin@npm:^4.0.0, fastify-plugin@npm:^4.3.0":
   version: 4.5.0
   resolution: "fastify-plugin@npm:4.5.0"
   checksum: 81a63886e038fffb5427df5104c53b0f5d8ad89e59a451110cf591a81372ead1986df59d95bd897d9bd742f78e20eb3ff50bda0115382e6359ed1616883b9a01
@@ -12693,6 +12701,19 @@ __metadata:
     raw-body: ^2.5.1
     secure-json-parse: ^2.4.0
   checksum: 7e71fe5dcffa2cf66afad2a884b5395e146f4ea6f566c428a8b501fbfb4665919fef18743b6ab80a66bedb644caf8580e2cf08f41494d00a172aa85607a1b27b
+  languageName: node
+  linkType: hard
+
+"fastify-sse-v2@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "fastify-sse-v2@npm:3.0.0"
+  dependencies:
+    fastify-plugin: ^4.3.0
+    it-pushable: ^1.4.2
+    it-to-stream: ^1.0.0
+  peerDependencies:
+    fastify: ">=4"
+  checksum: 145b10f2ea28f1bf6819cded273bd46b92abe5423e46381caf730a548482ab29c8f304af0a1484d1259bb60905a02e1cacb75dc5f7160509e8653c84c00e080c
   languageName: node
   linkType: hard
 
@@ -13374,6 +13395,13 @@ __metadata:
     has: ^1.0.3
     has-symbols: ^1.0.3
   checksum: 7c564f6b1061e6ca9eb1abab424a2cf80b93e75dcde65229d504e4055aa0ea54f88330e9b75d10e41c72bca881a947e84193b3549a4692d836f304239a178d63
+  languageName: node
+  linkType: hard
+
+"get-iterator@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "get-iterator@npm:1.0.2"
+  checksum: d4096a21ca860678326ab059dabf1bf2d5cfe5dda59ce987d0c6b43c41706b92797bac4c6b75bf5e58341be70763a6961af826e79f5c606115d68ad982eaff79
   languageName: node
   linkType: hard
 
@@ -15438,6 +15466,29 @@ __metadata:
     html-escaper: ^2.0.0
     istanbul-lib-report: ^3.0.0
   checksum: 3a147171bffdbd3034856410b6ec81637871d17d10986513328fec23df6b666f66bd08ea480f5b7a5b9f7e8abc30f3e3c2e7d1b661fc57cdc479aaaa677b1011
+  languageName: node
+  linkType: hard
+
+"it-pushable@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "it-pushable@npm:1.4.2"
+  dependencies:
+    fast-fifo: ^1.0.0
+  checksum: 6486d466bba26ad421b3c3ee20b22d0850b383308209216e8f9fa35f518689cb2bf80bad868ac0191591d693ec651949d76a91980a2e81a9d8cb4fe82ba9abff
+  languageName: node
+  linkType: hard
+
+"it-to-stream@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "it-to-stream@npm:1.0.0"
+  dependencies:
+    buffer: ^6.0.3
+    fast-fifo: ^1.0.0
+    get-iterator: ^1.0.2
+    p-defer: ^3.0.0
+    p-fifo: ^1.0.0
+    readable-stream: ^3.6.0
+  checksum: 92415ba12aac6df438ab941bcb8ca3bda4c6d1ce50756d3aa55916e8ab0e85e069c571b45cd27a0c85b0370adb062d843995a18257c93f4ef2237b21f66666b4
   languageName: node
   linkType: hard
 
@@ -18382,12 +18433,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"p-defer@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "p-defer@npm:3.0.0"
+  checksum: 848eb9821785b9a203def23618217ddbfa5cd909574ad0d66aae61a1981c4dcfa084804d6f97abe027bd004643471ddcdc823aa8df60198f791a9bd985e01bee
+  languageName: node
+  linkType: hard
+
 "p-event@npm:^4.1.0":
   version: 4.2.0
   resolution: "p-event@npm:4.2.0"
   dependencies:
     p-timeout: ^3.1.0
   checksum: f1b6a2fb13d47f2a8afc00150da5ece0d28940ce3d8fa562873e091d3337d298e78fee9cb18b768598ff1d11df608b2ae23868309ff6405b864a2451ccd6d25a
+  languageName: node
+  linkType: hard
+
+"p-fifo@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "p-fifo@npm:1.0.0"
+  dependencies:
+    fast-fifo: ^1.0.0
+    p-defer: ^3.0.0
+  checksum: b9e5b9c14c0fea63801c55c116028dce60770ff0be06dff459981c83c014028cf7b671acb12f169a4bdb3e7e1c5ec75c6d69542aebeccd1c13e3ddd764e7450d
   languageName: node
   linkType: hard
 
